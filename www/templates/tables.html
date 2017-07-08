@@ -1,0 +1,47 @@
+<ion-view view-title="Mesas recientes" ng-init="getTables()">
+  <ion-content>
+    <ion-refresher
+    spinner="ripple"
+    on-refresh="getTables(true)">
+  </ion-refresher>
+  <ion-list>
+    <ion-item style="padding: 0px;">
+      <button ng-show="!searching" class="button button-clear ion-search button-full" ng-click="openModal()" style="margin:0px;"> Buscar</button>
+      <button ng-show="searching" class="button button-clear ion-close-round button-full" ng-click="getTables()" style="margin:0px;"> Quitar filtros</button>
+    </ion-item>
+    <ion-item ng-show="tables.length > 0" ng-repeat="table in tables track by table._id" href="#/app/tables/{{table._id}}">
+      <div class="row">
+        <div class="col col-50">
+          <span><i class="icon ion-android-subway right-5"></i> {{table._fromStation.name}}</span>
+          <span class="ion-ios-arrow-thin-right"></span>
+          <span>{{table._toStation.name}}</span>
+          <p><i class="icon ion-calendar right-5"></i> {{table.fromDatetime | date: "dd/MM/yyyy"}}</p>
+          <p><i class="icon ion-clock right-5"></i> {{table.fromDatetime | date: "HH:mm"}} <span class="ion-ios-arrow-thin-right"></span> {{table.toDatetime | date: "HH:mm"}}</p>
+        </div>
+        <div class="col col-50">
+          <p style="text-align: right;font-size:20px;">
+
+            <i ng-show="table.availablePlaces <= 3" class="icon ion-close-circled" style="color:crimson"></i>
+            <i ng-show="table.availablePlaces > 3" class="icon ion-checkmark-circled" style="color:seagreen"></i>
+            <i ng-show="table.availablePlaces <= 2" class="icon ion-close-circled" style="color:crimson"></i>
+            <i ng-show="table.availablePlaces > 2" class="icon ion-checkmark-circled" style="color:seagreen"></i>
+          </p>
+          <p style="text-align: right;font-size:20px;">
+            <i ng-show="table.availablePlaces <= 1" class="icon ion-close-circled" style="color:crimson"></i>
+            <i ng-show="table.availablePlaces > 1" class="icon ion-checkmark-circled" style="color:seagreen"></i>
+            <i ng-show="table.availablePlaces <= 0" class="icon ion-close-circled" style="color:crimson"></i>
+            <i ng-show="table.availablePlaces > 0" class="icon ion-checkmark-circled" style="color:seagreen"></i>
+          </p>
+          <p style="text-align: right;margin-top:20px;font-weight:bold;">{{table.price}} €</p>
+        </div>
+      </div>
+    </ion-item>
+
+    <ion-item ng-show="tables.length == 0">
+      <p style="text-align: center">No se ha encontrado ninguna mesa.</p>
+
+      <a class="button button-balanced button-full" href="#/app/myTables">¡Publica una mesa ahora!</a>
+    </ion-item>
+  </ion-list>
+</ion-content>
+</ion-view>

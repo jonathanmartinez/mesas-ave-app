@@ -1,0 +1,24 @@
+<ion-view view-title="Mi mesa">
+	<ion-nav-buttons side="secondary">
+    	<button class="button button-clear" ng-click="openModal()">Editar</button>
+  	</ion-nav-buttons>
+  	<ion-content>
+		 <h4 style="text-align:center">{{table._fromStation.name}} <span class="ion-ios-arrow-thin-right"></span> {{table._toStation.name}}</h4>
+    <br>
+
+    <ul class="list">
+	    <li class="item">
+	      <strong style="float:left;"><i class="icon ion-calendar right-5"></i> Salida:</strong> <span style="float:right;">{{table.fromDatetime | date : "dd/MM/yyyy HH:mm"}} </span>
+	    </li>
+	    <li class="item">
+	      <strong style="float:left;"><i class="icon ion-calendar right-5"></i> Llegada:</strong> <span style="float:right">{{table.toDatetime | date : "dd/MM/yyyy HH:mm"}} </span>
+	    </li>
+	    <li class="item">
+	    	<strong><i class="icon ion-checkmark-circled right-5"></i> Plazas disponibles:</strong> <span class="badge badge-balanced">{{table.availablePlaces}}</span>
+	    </li>
+	    <li class="item">
+	    	<strong style="float:left;"><i class="icon ion-social-euro right-5"></i> Precio por billete:</strong> <span style="float:right">{{table.price || "Por determinar"}} </span>
+	    </li>
+	</ul>
+	</ion-content>
+</ion-view>

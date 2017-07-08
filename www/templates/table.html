@@ -1,0 +1,43 @@
+<ion-view view-title="Detalle mesa">
+  <ion-content>
+    <ul class="list">
+    	<li class="item">
+    		<br>
+    		<h2 style="text-align:center; font-weight: bold;">{{table._fromStation.name}} <span class="ion-ios-arrow-thin-right"></span> {{table._toStation.name}}</h2>
+    		<br>
+    	</li>
+	    <li class="item">
+	      <strong style="float:left;"><i class="icon ion-calendar right-5"></i> Salida:</strong> <span style="float:right;">{{table.fromDatetime | date : "dd/MM/yyyy HH:mm"}} </span>
+	    </li>
+	    <li class="item">
+	      <strong style="float:left;"><i class="icon ion-calendar right-5"></i> Llegada:</strong> <span style="float:right">{{table.toDatetime | date : "dd/MM/yyyy HH:mm"}} </span>
+	    </li>
+	    <li class="item">
+	    	<strong><i class="icon ion-checkmark-circled right-5"></i> Plazas disponibles:</strong> <span class="badge badge-balanced">{{table.availablePlaces}}</span>
+	    </li>
+	    <li class="item">
+	    	<strong style="float:left;"><i class="icon ion-social-euro right-5"></i> Precio:</strong> <span style="float:right;">{{table.price || "Por determinar"}} <span ng-if="table.price">€</span></span>
+	    </li>
+	    <li class="item item-divider">
+	      Usuario
+	    </li>
+	    <li class="item">
+	      <div class="my-table">
+            <div class="my-cell" style="width: 25% !important;">
+              <img style="border-radius:50%; height: 70px; width:70px; " class="my-pull-left my-cell img-thumbnail" ng-src="{{table._user.imageURL || 'http://promote.uk.com/wp-content/uploads/2014/11/placeholder_avatar_300x300.png'}}">
+            </div>
+            <div class="my-cell">
+              <p class="left-10">{{table._user.name || 'Usuario invitado'}}</p>
+              <p class="left-10"><i class="icon ion-ios-telephone right-5"></i> {{table._user.phone}}</p>
+            </div>
+          </div>
+	    </li>
+	    <!--<li class="item">
+	      <strong style="float:left;"><i class="icon ion-ios-telephone right-5"></i> Teléfono:</strong> <span style="float:right">{{table._user.phone}} </span>
+	    </li>-->
+	    <li class="item" style="border-bottom:0px">
+	      <strong style="float:left;"><i class="icon ion-ios-email right-5"></i> Email:</strong> <span style="float:right">{{table._user.email}} </span>
+	    </li>
+	</ul>
+  </ion-content>
+</ion-view>

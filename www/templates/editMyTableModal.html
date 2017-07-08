@@ -1,0 +1,41 @@
+<ion-modal-view>
+    <ion-header-bar>
+      <h1 class="title">Editar mesa</h1>
+      <div class="buttons">
+        <button class="button button-clear" ng-click="closeModal()">Cancelar</button>
+      </div>
+    </ion-header-bar>
+    <ion-content>
+     <div class="list">
+        <label class="item item-input item-select">
+          <div class="input-label">Origen</div>
+          <select ng-model="editMyTableData._fromStation" ng-options="station.name for station in stations">
+          </select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">Destino</div>
+          <select ng-model="editMyTableData._toStation" ng-options="station.name for station in stations">
+            <option value="">Seleccionar estación</option>
+          </select>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Día</span>
+          <input type="date" ng-model="editMyTableData.date" style="text-align:right">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Hora de salida:</span>
+          <input type="time" ng-model="editMyTableData.fromTime" style="text-align:right">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Hora de llegada:</span>
+          <input type="time" ng-model="editMyTableData.toTime" style="text-align:right">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Plazas disponibles:</span>
+          <input type="number" ng-model="editMyTableData.availablePlaces" style="text-align:right">
+        </label>
+      </div>
+      <button class="button button-full button-positive" ng-click="editMyTable()">Guardar</button>
+      <button class="button button-full button-assertive" ng-click="deleteMyTable()">Eliminar mesa</button>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,41 @@
+<ion-modal-view>
+    <ion-header-bar>
+      <h1 class="title">Buscar mesas</h1>
+      <div class="buttons">
+        <button class="button button-clear" ng-click="closeModal()">Cancelar</button>
+      </div>
+    </ion-header-bar>
+    <ion-content>
+     <div class="list">
+        <label class="item item-input item-select">
+          <div class="input-label"><i class="icon ion-android-subway right-5"></i> Origen</div>
+          <select ng-model="search._fromStation">
+            <option ng-repeat="station in stations track by station._id" ng-selected="$first" value="{{station._id}}">{{station.name}}</option>
+          </select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label"><i class="icon ion-android-subway right-5"></i> Destino</div>
+          <select ng-model="search._toStation">
+            <option ng-repeat="station in stations track by station._id" ng-selected="$first" value="{{station._id}}">{{station.name}}</option>
+          </select>
+        </label>
+        <label class="item item-input">
+          <span class="input-label"><i class="icon ion-calendar right-5"></i> Día</span>
+          <input type="date" ng-model="search.fromDatetime" style="text-align:right">
+        </label>
+
+        <div class="item item-divider"> 
+          Búsquedas recientes
+        </div>
+        
+        <ion-toggle toggle-class="toggle-positive" ng-model="search.saveSearch">
+          <i class="icon ion-android-list right-5"></i> Guardar búsqueda
+        </ion-toggle>
+        <!--<label class="item item-input">
+          <span class="input-label">Hora</span>
+          <input type="time" ng-model="search.time" style="text-align:right">
+        </label>-->
+      </div>
+      <button class="button button-full button-positive" ng-click="searchTables()">Buscar</button>
+    </ion-content>
+</ion-modal-view>

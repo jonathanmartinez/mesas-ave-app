@@ -1,0 +1,89 @@
+.my-pull-right{
+	float: right;
+}
+
+.my-pull-left{
+	float: left;
+}
+
+.left-10{
+	padding-left: 10px;
+}
+
+.right-10{
+	padding-right: 10px;
+}
+
+.left-5{
+	padding-left: 5px;
+}
+
+.right-5{
+	padding-right: 5px;
+}
+
+.my-table {
+	display: table;
+}
+
+.my-cell {
+    display: table-cell !important;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.img-thumbnail {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: inline-block;
+    height: auto;
+    line-height: 1.42857;
+    max-width: 100%;
+    padding: 2px;
+    transition: all 0.2s ease-in-out 0s;
+}
+
+.img-thumbnail {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
+}
+
+.item-complex .item-content, .item-radio .item-content {
+	padding: 16px !important;
+}
+
+ion-side-menu .item, ion-side-menu, ion-side-menu .item a, ion-side-menu ion-header-bar, ion-side-menu ion-header-bar h1 {
+	background-color: #333 !important;
+	border-color: #222 !important;
+	color: #FFF !important;
+}
+
+ion-side-menu .item.item-divider{
+	background-color: #444 !important;
+}
+
+.button-clear.button-icon{
+	color:white;
+}
+
+ion-header-bar .button-clear.button-clear{
+	color:white;
+}
+
+.button.button-positive{
+	background-color: #1D8DA4 !important;border-color:#1D8DA4 !important;
+}
+
+ion-header-bar{
+	background-color: #1D8DA4 !important;border-color:#1D8DA4 !important;
+	color:white !important;
+}
+
+.modal ion-header-bar{
+	background-color: #f8f8f8 !important;border-color:#f8f8f8 !important;
+	color:black !important;
+}
+
+.modal ion-header-bar button{
+	color:#888 !important;
+}

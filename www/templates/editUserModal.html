@@ -1,0 +1,21 @@
+<ion-modal-view>
+    <ion-header-bar>
+      <h1 class="title">Editar usuario</h1>
+      <div class="buttons">
+        <button class="button button-clear" ng-click="closeModal()">Cancelar</button>
+      </div>
+    </ion-header-bar>
+    <ion-content>
+     <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Nombre</span>
+          <input type="text" ng-model="editUserData.name">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Teléfono</span>
+          <input type="tel" ng-model="editUserData.phone">
+        </label>
+      </div>
+      <button class="button button-full button-positive" ng-click="updateUser()">Guardar</button>
+    </ion-content>
+</ion-modal-view>

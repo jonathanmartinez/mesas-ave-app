@@ -1,0 +1,42 @@
+<ion-view view-title="Mis mesas">
+  <ion-nav-buttons side="secondary">
+    <button class="button button-clear" ng-click="openModal()">Publicar mesa</button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+      <ion-item ng-show="tables.length > 0" ng-repeat="table in tables" href="#/app/myTable/{{table._id}}">
+      	<div class="row">
+          <div class="col col-50">
+            <span><i class="icon ion-android-subway right-5"></i> {{table._fromStation.name}}</span>
+            <span class="ion-ios-arrow-thin-right"></span>
+            <span>{{table._toStation.name}}</span>
+            <p><i class="icon ion-calendar right-5"></i> {{table.fromDatetime | date: "dd/MM/yyyy"}}</p>
+            <p><i class="icon ion-clock right-5"></i> {{table.fromDatetime | date: "HH:mm"}} <span class="ion-ios-arrow-thin-right"></span> {{table.toDatetime | date: "HH:mm"}}</p>
+          </div>
+          <div class="col col-50">
+            <p style="text-align: right;font-size:20px;">
+              <i ng-show="table.availablePlaces <= 3" class="icon ion-close-circled right-5" style="color:crimson"></i>
+              <i ng-show="table.availablePlaces > 3" class="icon ion-checkmark-circled right-5" style="color:seagreen"></i>
+              <i ng-show="table.availablePlaces <= 2" class="icon ion-close-circled" style="color:crimson"></i>
+              <i ng-show="table.availablePlaces > 2" class="icon ion-checkmark-circled" style="color:seagreen"></i>
+            </p>
+            <p style="text-align: right;font-size:20px;">
+              <i ng-show="table.availablePlaces <= 1" class="icon ion-close-circled right-5" style="color:crimson"></i>
+              <i ng-show="table.availablePlaces > 1" class="icon ion-checkmark-circled right-5" style="color:seagreen"></i>
+              <i ng-show="table.availablePlaces <= 0" class="icon ion-close-circled" style="color:crimson"></i>
+              <i ng-show="table.availablePlaces > 0" class="icon ion-checkmark-circled" style="color:seagreen"></i>
+            </p>    
+            <p style="text-align: right;">{{table.price || "Por determinar"}} €</p>
+          </div>
+        </div>
+      </ion-item>
+      <ion-item ng-show="tables.length == 0">
+        <p style="text-align: center">Actualmente no tienes ninguna mesa publicada.</p>
+      </ion-item>
+      <ion-item ng-show="tables.length == 0">
+        <button class="button button-balanced button-full" ng-click="openModal()">¡Publica una mesa ahora!</button>
+        {{userData}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

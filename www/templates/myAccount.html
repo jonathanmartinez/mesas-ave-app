@@ -1,0 +1,28 @@
+<ion-view view-title="Mi cuenta">
+	<ion-nav-buttons side="secondary">
+    	<button class="button button-clear" ng-click="openModal()">Editar</button>
+  	</ion-nav-buttons>
+  <ion-content>
+    <ul class="list">
+	    <li class="item my-table">
+	    	<div class="my-cell" style="width: 25% !important;">
+	    		<img style="border-radius:50%; height: 100px; width:100px; " class="my-pull-left my-cell img-thumbnail" ng-src="{{user.data.user.imageURL}}">
+	    	</div>
+	    	<div class="my-cell">
+	    		<span class="my-pull-left left-10 my-cell"><strong>{{user.data.user.name}}</strong></span>
+	    	</div>
+	    </li>
+	    <li class="item">
+	      <span class="ion-email"> &nbsp;&nbsp;&nbsp; {{user.data.user.email}}</span>
+	    </li>
+	    <li class="item">
+	      <span class="ion-ios-telephone"> &nbsp;&nbsp;&nbsp; {{user.data.user.phone}}</span>
+	    </li>
+	    <li class="item">
+	      <button class="button button-clear button-full" ng-click="showEditPasswordModal()"> Cambiar contraseña</button>
+	    </li>
+	</ul>
+
+	
+  </ion-content>
+</ion-view>
